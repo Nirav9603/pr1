@@ -2,6 +2,104 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const person = {
+    name: "Amit",
+    age: 25
+  }
+  for (let k in person) {
+    console.log(k + " : " + person[k]);
+  }
+
+  const persona = [
+    {
+      name: "Amit",
+      age: 25,
+    },
+    {
+      name: "Piyush",
+      age: 40,
+    },
+  ];
+
+  persona.map((p, i) => {
+    for (let ka in p) {
+      console.log(ka + " : " + p[ka]);
+    }
+  })
+
+  const personb = {
+    name: "Amit",
+    age: 25,
+    course: [
+      "C",
+      "HTML"
+    ]
+  }
+
+  for (let kb in personb) {
+    if (kb === "course") {
+      personb.course.map((d, i) => {
+        console.log(d);
+      })
+    } else {
+      console.log(kb + " : " + personb[kb]);
+    }
+  }
+
+  const personc = [
+    {
+      name: "Amit",
+      age: 25,
+      course: [
+        "C",
+        "HTML"
+      ]
+    },
+    {
+      name: "Ajay",
+      age: 40,
+      course: [
+        "Java",
+        "JavaScript"
+      ]
+    }
+  ]
+
+  personc.map((pc, ic) => {
+   for(let kc in pc){
+
+     if(kc === "course"){
+      pc.course.map((d, i) => {
+        console.log(d);
+      })
+     } else{
+      console.log(kc + " : " + pc[kc]);
+     }
+   }
+  })
+
+  const myObj = {
+    name: "John",
+    age: 30,
+    cars: {
+        car1: "Ford",
+        car2: "BMW",
+        car3: "Fiat"
+    }
+  }
+
+  for(let k in myObj){
+    if(k === "cars"){
+      for(let k1 in myObj[k]){
+        console.log(myObj[k][k1]);
+      }
+    } else{
+      console.log(k + " : " + myObj[k]);
+    }
+  }
+
+  //--- Medicine Data ---
   let medicineData = [
     {
       id: 101,
@@ -45,6 +143,7 @@ function App() {
     }
   ];
 
+  //--- Employee Data ---
   let employeeData = [
     {
       name: "amit",
@@ -82,35 +181,37 @@ function App() {
       status: true
     },
   ]
-  let employeefilter = employeeData.filter((d, i) => d.status === true);
+  let employeefilter = employeeData.filter((efd, efi) => efd.status === true);
+  let totalExpense = employeefilter.reduce((acc, ed, ei) => acc + ed.salary + ed.bonus, 0);
 
-  let total = medicineData.reduce((acc, d1, i1) => acc + d1.price, 0);
+  let medicinefilter = medicineData.filter((mfd, mfi) => mfd.status === true);
+  let total = medicinefilter.reduce((acc, md, mi) => acc + md.price, 0);
 
   return (
     <div>
       <h1 align="center">Medicine Data</h1>
       <table border="1px" width="750px" cellSpacing="0" align="center" cellPadding="0">
         <tr>
-          <th>id</th>
-          <th>name</th>
-          <th>quantity</th>
-          <th>expiry</th>
-          <th>status</th>
-          <th>price</th>
-          <th>Total price</th>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Expiry</th>
+          <th>Status</th>
+          <th>Price</th>
+          <th>Total Price</th>
         </tr>
         {
-          m_data.map((data, i) => {
-            let { id, name, quantity, expiry, status, price } = data;
+          medicinefilter.map((datam, index) => {
+            let { id, name, quantity, expiry, status, price } = datam;
             return (
-              <tr key={i}>
+              <tr key={index}>
                 <td align="center">{id}</td>
                 <td align="center">{name}</td>
                 <td align="center">{quantity}</td>
                 <td align="center">{expiry}</td>
                 <td align="center">{status.toString()}</td>
                 <td align="center">{price}</td>
-                {i === 0 ? <td align="center" rowSpan="6">{total}</td> : null}
+                {index === 0 ? <td align="center" rowSpan="6">{total}</td> : null}
               </tr>
             )
           })
@@ -120,27 +221,29 @@ function App() {
       <>
         <br></br>
       </>
-      <h1 align="center">Employee Data:</h1>
+      <h1 align="center">Employee Data</h1>
       <table border="1px" width="750px" align="center" cellSpacing="0" cellPadding="0">
         <tr>
-          <th>name</th>
-          <th>age</th>
-          <th>salary</th>
-          <th>bonus</th>
-          <th>status</th>
-          <th>total salary</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Salary</th>
+          <th>Bonus</th>
+          <th>Status</th>
+          <th>Total Salary</th>
+          <th>Total Expense </th>
         </tr>
         {
-          Employee_data.map((data2, i2) => {
-            let { name, age, salary, bonus, status } = data2;
+          employeefilter.map((datae, indexe) => {
+            let { name, age, salary, bonus, status } = datae;
             return (
-              <tr key={i2}>
+              <tr key={indexe}>
                 <td align="center">{name}</td>
                 <td align="center">{age}</td>
                 <td align="center">{salary}</td>
                 <td align="center">{bonus}</td>
                 <td align="center">{status.toString()}</td>
                 <td align="center">{salary + bonus}</td>
+                {indexe === 0 ? <td align="center" rowSpan="6">{totalExpense}</td> : null}
               </tr>
             )
           })
