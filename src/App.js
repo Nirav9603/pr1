@@ -1,11 +1,13 @@
 import React from 'react';
-import country from './container/country';
+import Country from './container/Country'
+import CountryFun from './container/CountryFun';
 
 function App(props) {
   return (
     <div>
-      <country/>
-    </div>
+      {/* <Country /> */}
+      <CountryFun />
+  </div>
   );
 }
 
