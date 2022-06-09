@@ -1,18 +1,14 @@
 import React from 'react';
-import City from './container/City';
-import CityFun from './container/CityFun';
-import Country from './container/Country'
-import CountryFun from './container/CountryFun';
-import FamousPlaces from './container/FamousPlaces';
+import ComponentLifecycle from './container/ComponentLifecycle';
+import Time from './container/Time';
+import TimeFun from './container/TimeFun';
 
 function App(props) {
   return (
     <div>
-      {/* <Country /> */}
-      {/* <CountryFun /> */}
-      {/* {<City />} */}
-      {/* {<CityFun />} */}
-      {<FamousPlaces />}
+        {/* <ComponentLifecycle /> */}
+        {/* <Time /> */}
+        <TimeFun />
   </div>
   );
 }
