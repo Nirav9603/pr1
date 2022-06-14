@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import Counter from './container/Counter';
+import Home from './container/Home';
+import Loading from './container/Loading';
+
+const homeWithLoading = Loading(Home)
 
 function App(props) {
 
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState([])
 
-  employeeData = [
+  const employeeData = [
     {
       id: 101,
       name: 'Amit',
@@ -33,13 +36,17 @@ function App(props) {
     }
   ]
 
-  useEffect(()=>(
+  useEffect(() =>{
     setLoading(true)
-    setTimeout({})
-  ),[])
+    setTimeout(()=>{setLoading(false); setData(employeeData)}, 2000)
+  },[])
+
   return (
     <div>
-
+      <homeWithLoading 
+        isLoading={loading}
+        isData={data}
+      />
     </div>
   );
 }

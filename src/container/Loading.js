@@ -1,10 +1,8 @@
 import React from 'react';
 
 function Loading(Component) {
-    return (
-        <div>
-            
-        </div>
+    return function laod(
+        
     );
 }
 
