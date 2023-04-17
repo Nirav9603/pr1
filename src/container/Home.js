@@ -66,13 +66,15 @@ function Home() {
 
   return (
     <div>
-      <h1>CRUD OPRATION</h1>
+
       <DataModal Show={Show} setShow={setShow} callBack={getData} />
       <EditModal Show={Eshow} setShow={setEshow} callBack={getData} data={Edata}/>
-      <Button variant="primary" onClick={() => showModal()}>Add User</Button>
 
-      <Table striped>
-        <thead>
+
+      <Button style={{margin: "25px 0 25px 0"}} variant="primary" size="lg" onClick={() => showModal()}>Add User</Button>
+
+      <Table striped bordered>
+        <thead style={{background: "darkblue", color: "white"}}>
           <tr>
             <th>Id</th>
             <th>Name</th>
@@ -88,7 +90,7 @@ function Home() {
                   <td>{d.id}</td>
                   <td>{d.name}</td>
                   <td>{d.email}</td>
-                  <td><Button variant="danger" onClick={() => handleDelete(d)}>Delete</Button> <Button variant="primary" onClick={() => handleEdit(d)}>Edit</Button></td>
+                  <td><Button variant="outline-danger" onClick={() => handleDelete(d)}>Delete</Button> <Button variant="outline-primary" onClick={() => handleEdit(d)}>Edit</Button></td>
                 </tr>
               )
             })

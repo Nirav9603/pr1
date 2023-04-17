@@ -1,24 +1,14 @@
 {
   "user": [
     {
-      "id": 6,
-      "name": "vv",
-      "email": "a@gmail.com"
+      "id": 10,
+      "name": "Nirav M.",
+      "email": "n@gmail.com"
     },
     {
-      "id": 15,
-      "name": "hb",
-      "email": "a@a.com"
-    },
-    {
-      "id": 42,
-      "name": "v",
-      "email": "v@a.com"
-    },
-    {
-      "id": 48,
-      "name": "csq",
-      "email": "b@g.com"
+      "id": 41,
+      "name": "ABC",
+      "email": "abc@gmail.com"
     }
   ]
 }
