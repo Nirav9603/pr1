@@ -1,0 +1,8 @@
+export const ADDDATA = 'ADDDATA';
+export const DELETEDATA = 'DELETEDATA';
+export const EDITDATA = 'EDITDATA';
+export const GETUSERDATA = 'GETUSERDATA';
+export const SUCCESSUSERDATA = 'SUCCESSUSERDATA';
+export const ERRORUSERDATA = 'GETUSERDATA';
+
+
